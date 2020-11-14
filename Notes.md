@@ -1,7 +1,10 @@
 ## Setup
 
-This configuration is built on top of docker/docker-compose. To install docker, follow the instructions here - https://docs.docker.com/engine/install/
-This configuration also utilizes the make command. If using windows, you can install make here - http://gnuwin32.sourceforge.net/packages/make.htm; otherwise, you can just run the docker-compose commands listed in the Makefile.
+This configuration is built on top of docker/docker-compose. You can install docker here - https://docs.docker.com/engine/install/
+
+This configuration also utilizes the make command. If using windows, you can install make here - http://gnuwin32.sourceforge.net/packages/make.htm;
+
+Otherwise, you can just run the docker-compose commands listed in the Makefile.
 
 
 ## Instructions
@@ -44,4 +47,4 @@ you would need to delete the entire projection from the Projection_chart table, 
 
 
 # Alternative Solutions
-I chose to execute these transformations in SQL because the source data was provided in the form of an insert script, and I did not want to modify the source data or attempt to parse out the XML. If it were possible to receive the source data in the form of an API call, stream, or s3 file, I would prefer to use a scripting language like python or scala to conduct the workflow of parsing the XML data into the structured format that I desire, and handling inserting/updating into the final table. If the size of the insert statement were to significantly increase, performance becomes dependent on the resources available to the SQL instance. In addition, I find parsing in SQL to be a bit cumbersome, as well as losing the ability to test your extraction logic and handle any parsing or type errors that may arise. Apart from testing and ease of writing code, handling the ingestion and transformation layers outside of SQL would also allow the pipeline to benefit from partitioning of source data and workflow parallelization that would reduce some of the potential performance bottlenecks that may arise and introduce the ability to use distributed frameworks like Spark or Hadoop. 
+I chose to execute these transformations in SQL because the source data was provided in the form of an insert script, and I did not want to modify the source data or attempt to parse out the XML. If it were possible to receive the source data in the form of an API call, stream, or s3 file, I would prefer to use a scripting language like python or scala to conduct the workflow of parsing the XML data into the structured format that I desire, and handling inserting/updating into the final table. If the size of the insert data were to significantly increase, performance becomes dependent on the resources available to the SQL instance. In addition, I find parsing in SQL to be a bit cumbersome, as well as losing the ability to test your extraction logic and handle any parsing or data type errors that may arise. Apart from testing and ease of writing code, handling the ingestion and transformation layers outside of SQL would also allow the pipeline to benefit from lazy consumption or streaming, partitioning of source data, and workflow parallelization that would reduce some of the potential performance bottlenecks, increasing durability and introduce the ability to use distributed frameworks like Spark or Hadoop.

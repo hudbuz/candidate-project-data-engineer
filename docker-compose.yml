@@ -1,0 +1,11 @@
+version: '3.5'
+services:
+  sqldata:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    volumes:
+      - ./data:/app
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"

@@ -43,5 +43,5 @@ with deposits as (
 
      )
 select *
-into dbo.projection_chart
+into dbo.Projections_chart
 from projections

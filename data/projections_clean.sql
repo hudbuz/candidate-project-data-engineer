@@ -1,6 +1,3 @@
-
-
-
 DECLARE @XML XML;
 SET @XML = (
     select convert(xml, p.xml) as "xmldata"

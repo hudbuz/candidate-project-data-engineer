@@ -28,4 +28,3 @@ INSERT INTO Actuals (Amount, Memo, DateDeposited, ProjectionID) VALUES
   (-9.38, 'Insurance', '2019-08-01', 1)
   --etc
 ;
-
